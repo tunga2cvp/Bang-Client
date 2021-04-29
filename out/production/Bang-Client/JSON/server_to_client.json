@@ -1,0 +1,28 @@
+{
+  "token": "45ghasd4jx",
+  "jsontype": "notify",
+  "players": [
+	  {
+		"playernumber": 1,
+		"cardnumber": 4,
+		"health": 4
+	  },
+	  {
+		  "playernumber": 2,
+		  "cardnumber": 4,
+		  "health": 4
+	  },
+	  {
+		  "playernumber": 3,
+		  "cardnumber": 5,
+		  "health": 5
+	  },
+	  {
+		  "playernumber": 4,
+		  "cardnumber": 4,
+		  "health": 4
+	  }
+  ],
+  "message": "initialize",
+  "card": ["bang", "bang", "miss", "beer", "beer"]
+}

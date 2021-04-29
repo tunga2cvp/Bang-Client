@@ -1,0 +1,6 @@
+{
+  "token": String,
+  "jsontype": String, // offensive or defensive
+  "card": String, // null = end turn
+  "tgt": int // defensive tgt = null
+}

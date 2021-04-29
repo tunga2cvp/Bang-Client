@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="160.0" prefWidth="347.0" style="-fx-border-color: #aba229; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="opponentName" layoutX="99.0" layoutY="14.0" text="3" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="cardNumber" layoutX="122.0" layoutY="56.0" text="4" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="heath" layoutX="105.0" layoutY="104.0" text="4" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="role" fitHeight="150.0" fitWidth="200.0" layoutX="149.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/Roles/unknownRole.jpg" />
+         </image></ImageView>
+      <ImageView fx:id="equipCard" fitHeight="148.0" fitWidth="101.0" layoutX="246.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/Cards/equipCard.jpg" />
+         </image></ImageView>
+      <Label layoutX="32.0" layoutY="14.0" text="Player" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="56.0" text="CardNum" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="57.0" fitWidth="46.0" layoutX="48.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/heart.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
