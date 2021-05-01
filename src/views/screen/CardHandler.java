@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,16 +22,15 @@ public class CardHandler extends FXMLScreenHandler{
     private Button selectBtn;
 
     public CardHandler(String screenPath, Card card) throws IOException {
-        super(screenPath);
+        super(screenPath, new Stage());
         this.card = card;
         File file = new File(card.getImageURL());
         Image image = new Image(file.toURI().toString());
         cardImg.setImage(image);
 
-        BoardController boardController = new BoardController();
         selectBtn.setOnAction(e-> {
-            boardController.setPlayingCard(card);
-            System.out.println(boardController.getPlayingCard().getName());
+            BoardController.playingCard = card;
+//            System.out.println(BoardController.playingCard.getName());
         });
     }
     public Card getCard() {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="283.0" prefWidth="383.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="289.0" fitWidth="409.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/offensePopup.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="88.0" layoutY="25.0" text="Choose a player to shoot">
+         <font>
+            <Font name="Baskerville Old Face" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="target" layoutX="250.0" layoutY="83.0" prefHeight="26.0" prefWidth="85.0" style="-fx-border-color: brown;" />
+      <Button fx:id="shootBtn" layoutX="168.0" layoutY="82.0" mnemonicParsing="false" style="-fx-background-color: withe;">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/gun.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

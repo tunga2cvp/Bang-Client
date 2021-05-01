@@ -1,10 +1,12 @@
 package views.screen;
 
 import controller.BoardController;
+import controller.JSONSender;
 import entity.Card;
 import entity.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +40,12 @@ public class BoardScreenHandler implements Initializable {
     private VBox rightOpponentPlace;
     @FXML
     private ImageView playerRole;
+    @FXML
+    private Button playBtn;
+    @FXML
+    private Button endturnBtn;
+    @FXML
+    private Button discardBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,6 +114,32 @@ public class BoardScreenHandler implements Initializable {
         File file = new File(roleUrl);
         Image image = new Image(file.toURI().toString());
         playerRole.setImage(image);
+
+        // set action for play button
+
+        playBtn.setOnAction(e->{
+            if (BoardController.playingCard == null) System.out.println("no card where selected");
+            else
+            switch (BoardController.playingCard.getType()){
+                case "offense":
+                    try {
+                        TargetPopupHandler targetPopupHandler = new TargetPopupHandler(Configs.TARGET_POPUP_PATH, new Stage());
+                        targetPopupHandler.show();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    break;
+                case "defense":
+                    System.out.println(BoardController.playingCard.getName() + " is used to defense");
+                    break;
+                case "equip":
+                    System.out.println(BoardController.playingCard.getName() + " is equipped");
+                    break;
+                default:
+                    System.out.println("no card where selected");
+            }
+            BoardController.playingCard = null; // reset after play a card
+        });
     }
 
     public void addCardBoard(List items){

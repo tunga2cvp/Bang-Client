@@ -7,4 +7,7 @@ public class Configs {
     public static final String OPPONENT_PATH = "/views/fxml/Opponent.fxml";
     public static final String POPUP_PATH = "/views/fxml/popup.fxml";
     public static final String SPLASH_SCREEN_PATH = "/views/fxml/SplashScreen.fxml";
+    public static final String TARGET_POPUP_PATH = "/views/fxml/TargetPopup.fxml";
+    public static final String LOGIN_SCREEN_PATH = "/views/fxml/LoginScreen.fxml";
+    public static final String SIGNUP_SCREEN_PATH = "/views/fxml/SignUpScreen.fxml";
 }

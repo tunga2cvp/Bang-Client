@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 
 import java.io.File;
@@ -24,7 +25,7 @@ public class OpponentHandler extends FXMLScreenHandler{
     ImageView role;
 
     public OpponentHandler(String screenPath, Player player) throws IOException {
-        super(screenPath);
+        super(screenPath, new Stage());
         opponentName.setText(String.valueOf(player.getPlayerNum()));
         cardNumber.setText(String.valueOf(player.getCardNum()));
         heath.setText(String.valueOf(player.getHealth()));

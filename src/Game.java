@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import utils.Configs;
+import views.screen.LoginScreenHandler;
 
 import java.io.IOException;
 
@@ -49,12 +51,8 @@ public class Game extends Application {
             fadeOut.setOnFinished((e) -> {
                 //change to home screen
                 try {
-                    Parent root1;
-                    root1 = FXMLLoader.load(getClass().getClassLoader().getResource("views/fxml/BoardScreen.fxml"));
-                    Scene scene1 = new Scene(root1);
-                    primaryStage.setScene(scene1);
-                    primaryStage.setTitle("Bang!");
-                    primaryStage.show();
+                    LoginScreenHandler loginScreenHandlerHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
+                    LoginScreenHandler.show();
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
