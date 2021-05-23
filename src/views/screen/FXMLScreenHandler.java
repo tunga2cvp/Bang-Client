@@ -14,12 +14,19 @@ import javafx.stage.Stage;
 public class FXMLScreenHandler {
 
     protected FXMLLoader loader;
-    protected static AnchorPane content;
-    public static Stage stage;
+    protected AnchorPane content;
+    public Stage stage;
     private static Scene scene;
 
     public FXMLScreenHandler(String screenPath, Stage stage) throws IOException {
         this.stage = stage;
+        this.loader = new FXMLLoader(getClass().getResource(screenPath));
+        // Set this class as the controller
+        this.loader.setController(this);
+        this.content = (AnchorPane) loader.load();
+    }
+
+    public FXMLScreenHandler(String screenPath) throws IOException {
         this.loader = new FXMLLoader(getClass().getResource(screenPath));
         // Set this class as the controller
         this.loader.setController(this);
@@ -40,8 +47,16 @@ public class FXMLScreenHandler {
         Image img = new Image(file.toURI().toString());
         imv.setImage(img);
     }
-    public static void show() {
+    public void show() {
         scene = new Scene(content);
         stage.setScene(scene);
+        stage.setTitle("BANG!");
+        stage.show();
+    }
+    public void refresh(String screenPath) throws IOException {
+        this.loader = new FXMLLoader(getClass().getResource(screenPath));
+        this.loader.setController(this);
+        this.content = (AnchorPane) loader.load();
+        show();
     }
 }

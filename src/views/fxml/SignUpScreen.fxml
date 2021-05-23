@@ -16,7 +16,7 @@
                 <Image url="@../../assets/loginbackground2.jpg" />
             </image>
         </ImageView>
-        <AnchorPane fx:id="signupForm" layoutX="356.0" layoutY="106.0" prefHeight="401.0" prefWidth="400.0">
+        <AnchorPane fx:id="signupForm" layoutX="346.0" layoutY="96.0" prefHeight="401.0" prefWidth="400.0">
             <children>
                 <ImageView fitHeight="477.0" fitWidth="494.0" layoutX="-8.0" layoutY="-1.0" opacity="0.83" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -48,7 +48,7 @@
                         <Font name="Baskerville Old Face" size="20.0" />
                     </font>
                 </PasswordField>
-                <Button fx:id="signupBtn" layoutX="185.0" layoutY="376.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="118.0" text="Signup">
+                <Button fx:id="signupBtn" layoutX="185.0" layoutY="374.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="118.0" text="Signup">
                     <font>
                         <Font name="Baskerville Old Face" size="25.0" />
                     </font>

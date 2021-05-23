@@ -1,3 +1,4 @@
+import controller.TestController;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,9 +10,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import utils.Configs;
+import views.screen.BoardScreenHandler;
 import views.screen.LoginScreenHandler;
+import views.screen.TestHandler;
 
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Game extends Application {
     public static void main(String[] args)  {
@@ -51,8 +56,22 @@ public class Game extends Application {
             fadeOut.setOnFinished((e) -> {
                 //change to home screen
                 try {
-                    LoginScreenHandler loginScreenHandlerHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
-                    LoginScreenHandler.show();
+//                    LoginScreenHandler loginScreenHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
+//                    loginScreenHandler.show();
+//                    BoardScreenHandler boardScreenHandler = new BoardScreenHandler(Configs.BOARD_SCREEN_PATH, primaryStage);
+//                    boardScreenHandler.show();
+                    TestHandler testHandler = new TestHandler(Configs.TEST_PATH,primaryStage);
+                    testHandler.show();
+                    Scanner sc = new Scanner(System.in);
+                    String a;
+                    a = sc.nextLine();
+                    System.out.println(a);
+                    TestController.value = a;
+
+                    a = sc.nextLine();
+                    System.out.println(a);
+                    TestController.value = a;
+
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();

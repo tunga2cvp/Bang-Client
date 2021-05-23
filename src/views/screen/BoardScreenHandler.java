@@ -1,7 +1,6 @@
 package views.screen;
 
 import controller.BoardController;
-import controller.JSONSender;
 import entity.Card;
 import entity.Player;
 import javafx.fxml.FXML;
@@ -15,17 +14,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class BoardScreenHandler implements Initializable {
+public class BoardScreenHandler extends FXMLScreenHandler implements Initializable {
     private List boardItems;
     private BoardController boardController;
     @FXML
@@ -46,6 +42,10 @@ public class BoardScreenHandler implements Initializable {
     private Button endturnBtn;
     @FXML
     private Button discardBtn;
+
+    public BoardScreenHandler(String screenPath, Stage stage) throws IOException {
+        super(screenPath, stage);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -144,6 +144,7 @@ public class BoardScreenHandler implements Initializable {
 
     public void addCardBoard(List items){
         ArrayList boardItems = (ArrayList)((ArrayList) items).clone();
+        cards.getChildren().clear();
         while(!boardItems.isEmpty()){
                 while(!boardItems.isEmpty()){
                     CardHandler card = (CardHandler) boardItems.get(0);

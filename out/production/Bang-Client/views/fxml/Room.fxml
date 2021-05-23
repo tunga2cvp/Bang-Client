@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="roomSpace" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="roomBtn" mnemonicParsing="false">
+         <graphic>
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="713.0">
+               <children>
+                  <AnchorPane prefHeight="65.0" prefWidth="321.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="261.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="roomName" text="Name">
+                                 <font>
+                                    <Font name="Baskerville Old Face" size="29.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="65.0" prefWidth="513.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="453.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="playerNum" text="Player Number">
+                                 <font>
+                                    <Font name="Baskerville Old Face" size="29.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
