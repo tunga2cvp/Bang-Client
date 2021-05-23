@@ -62,15 +62,18 @@ public class Game extends Application {
 //                    boardScreenHandler.show();
                     TestHandler testHandler = new TestHandler(Configs.TEST_PATH,primaryStage);
                     testHandler.show();
-                    Scanner sc = new Scanner(System.in);
-                    String a;
-                    a = sc.nextLine();
-                    System.out.println(a);
-                    TestController.value = a;
 
-                    a = sc.nextLine();
-                    System.out.println(a);
-                    TestController.value = a;
+                    new Thread(() -> {
+                        String a = null;
+                        while (a == null || a != "exit\n") {
+                            TestController testController = testHandler.getTestController();
+                            Scanner sc = new Scanner(System.in);
+                            a = sc.nextLine();
+                            System.out.println(a);
+                            testController.update(a);
+                        }
+                    }).start();
+
 
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block

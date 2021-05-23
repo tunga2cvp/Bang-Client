@@ -29,21 +29,14 @@ public class TestHandler extends FXMLScreenHandler implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        testController = new TestController();
-//        Timeline fiveSecondsWonder = new Timeline(
-//                new KeyFrame(Duration.seconds(1),
-//                        event -> {
-//                            value.setText(testController.value);
-//                            System.out.println("this is called every 5 seconds on UI thread");
-//                        }));
-//        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
-//        fiveSecondsWonder.play();
-//        Platform.runLater(()->{
-//            value.setText(testController.value);
-//        });
-        value.setText(testController.value);
+        testController = new TestController(this);
     }
+
     public void updateText(String message){
         value.setText(message);
+    }
+
+    public TestController getTestController() {
+        return testController;
     }
 }
