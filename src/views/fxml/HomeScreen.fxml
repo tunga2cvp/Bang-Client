@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fitHeight="1050.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -17,24 +17,24 @@
         </ImageView>
         <HBox prefHeight="687.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <AnchorPane fx:id="menuBox" opacity="0.91" prefHeight="687.0" prefWidth="185.0" style="-fx-background-color: #d1c4a1;">
+                <AnchorPane fx:id="menuBox" opacity="0.91" prefHeight="687.0" prefWidth="200.0" style="-fx-background-color: #d1c4a1;">
                     <children>
                         <Label layoutX="29.0" layoutY="8.0" rotate="-14.0" text="Bang!" textFill="#eb4040">
                             <font>
                                 <Font name="Bodoni MT Poster Compressed" size="96.0" />
                             </font>
                         </Label>
-                        <Button fx:id="showRoomBtn" layoutX="-3.0" layoutY="193.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="199.0" text="Open Rooms">
+                        <Button fx:id="showRoomBtn" layoutX="-3.0" layoutY="193.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" text="Open Rooms">
                             <font>
                                 <Font name="Baskerville Old Face" size="28.0" />
                             </font>
                         </Button>
-                        <Button fx:id="createRoomBtn" layoutX="-5.0" layoutY="283.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="199.0" text="Create Room">
+                        <Button fx:id="createRoomBtn" layoutX="-1.0" layoutY="284.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" text="Create Room">
                             <font>
                                 <Font name="Baskerville Old Face" size="28.0" />
                             </font>
                         </Button>
-                        <Button layoutX="-4.0" layoutY="560.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="199.0" text="Logout">
+                        <Button fx:id="logoutBtn" layoutX="-4.0" layoutY="560.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" text="Logout">
                             <font>
                                 <Font name="Baskerville Old Face" size="28.0" />
                             </font>

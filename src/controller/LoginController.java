@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import entity.message.LoginSend;
 import entity.message.SignUpSend;
 import utils.Client;
 
@@ -16,10 +17,10 @@ public class LoginController {
         return result;
     }
     public void sendMessage(String username, String password) throws IOException, InterruptedException {
-        SignUpSend signUpSend = new SignUpSend("login","",username, password);
+        LoginSend loginSend = new LoginSend("",username, password);
         Gson gson = new Gson();
         // Serialization
-        String json = gson.toJson(signUpSend);
+        String json = gson.toJson(loginSend);
         System.out.println(json);
         // send to server
         Client.sendMessage(json);

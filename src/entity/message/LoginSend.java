@@ -1,11 +1,11 @@
 package entity.message;
 
-public class SignUpSend extends Send{
+public class LoginSend extends Send{
     String type = "signup";
     String username;
     String password;
-    public SignUpSend(String msg, String username, String password) {
-        super("signup", msg);
+    public LoginSend(String msg, String username, String password) {
+        super("login", msg);
         this.username = username;
         this.password = password;
     }

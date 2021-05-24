@@ -16,7 +16,7 @@ public class SignUpController {
         return result;
     }
     public void sendMessage(String username, String password) throws IOException, InterruptedException {
-        SignUpSend signUpSend = new SignUpSend("signup","",username, password);
+        SignUpSend signUpSend = new SignUpSend("",username, password);
         Gson gson = new Gson();
         // Serialization
         String json = gson.toJson(signUpSend);

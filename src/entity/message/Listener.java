@@ -19,9 +19,11 @@ public class Listener {
                 loginController.setResult(JsonHandler.getStringAttribute(message, "result"));
                 System.out.println("login result = " + JsonHandler.getStringAttribute(message, "result"));
                 break;
+            case "logout":
+                System.out.println("logout result = " + JsonHandler.getStringAttribute(message, "msg"));
+                break;
             default:
-                System.out.println("unknown command");
-                System.out.println(command);
+                System.out.println("unknown command:" + command);
         }
     }
 }

@@ -1,9 +1,11 @@
 package views.screen;
 
 import controller.HomeController;
+import controller.LogoutController;
 import entity.Room;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import utils.Configs;
@@ -19,6 +21,8 @@ public class HomeScreenHandler extends FXMLScreenHandler implements Initializabl
     HomeController homeController;
     @FXML
     AnchorPane middleBox;
+    @FXML
+    Button logoutBtn;
 
     public HomeScreenHandler(String screenPath, Stage stage) throws IOException {
         super(screenPath, stage);
@@ -35,6 +39,22 @@ public class HomeScreenHandler extends FXMLScreenHandler implements Initializabl
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        logoutBtn.setOnAction(e->{
+            LogoutController logoutController = new LogoutController();
+            try {
+                logoutController.sendMessage("");
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+            LoginScreenHandler loginScreenHandler = null;
+            try {
+                loginScreenHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH, this.stage);
+                loginScreenHandler.show();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
     }
 }
