@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import utils.Client;
 import utils.Configs;
 import views.screen.BoardScreenHandler;
 import views.screen.LoginScreenHandler;
@@ -19,7 +20,8 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Game extends Application {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException {
+        Client.activate();
         launch(args);
     }
 
@@ -56,23 +58,23 @@ public class Game extends Application {
             fadeOut.setOnFinished((e) -> {
                 //change to home screen
                 try {
-//                    LoginScreenHandler loginScreenHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
-//                    loginScreenHandler.show();
+                    LoginScreenHandler loginScreenHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
+                    loginScreenHandler.show();
 //                    BoardScreenHandler boardScreenHandler = new BoardScreenHandler(Configs.BOARD_SCREEN_PATH, primaryStage);
 //                    boardScreenHandler.show();
-                    TestHandler testHandler = new TestHandler(Configs.TEST_PATH,primaryStage);
-                    testHandler.show();
+//                    TestHandler testHandler = new TestHandler(Configs.TEST_PATH,primaryStage);
+//                    testHandler.show();
 
-                    new Thread(() -> {
-                        String a = null;
-                        while (a == null || a != "exit\n") {
-                            TestController testController = testHandler.getTestController();
-                            Scanner sc = new Scanner(System.in);
-                            a = sc.nextLine();
-                            System.out.println(a);
-                            testController.update(a);
-                        }
-                    }).start();
+//                    new Thread(() -> {
+//                        String a = null;
+//                        while (a == null || a != "exit\n") {
+//                            TestController testController = testHandler.getTestController();
+//                            Scanner sc = new Scanner(System.in);
+//                            a = sc.nextLine();
+//                            System.out.println(a);
+//                            testController.update(a);
+//                        }
+//                    }).start();
 
 
                 } catch (IOException e1) {

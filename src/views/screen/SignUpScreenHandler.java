@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import utils.Configs;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class SignUpScreenHandler extends FXMLScreenHandler{
     @FXML
@@ -24,10 +25,25 @@ public class SignUpScreenHandler extends FXMLScreenHandler{
         super(screenPath, stage);
         signUpController = new SignUpController();
         signupBtn.setOnAction(e->{
-            if ( signUpController.getResult().equals("Success")) {
-                System.out.println("fullname " + fullname.getText());
-                System.out.println("username " + username.getText());
-                System.out.println("password " + password.getText());
+
+            // send signup message
+            try {
+                signUpController.sendMessage(username.getText(), password.getText());
+            } catch (IOException | InterruptedException ioException) {
+                ioException.printStackTrace();
+            }
+
+            // manage UI
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+            System.out.println("result is " + signUpController.getResult());
+            if (signUpController.getResult().equals("pending")){
+
+            }
+            else if ( signUpController.getResult().equals("true")) {
                 try {
                     PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
                     popUpHandler.SignUp(true);

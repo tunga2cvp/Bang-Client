@@ -30,6 +30,7 @@ public class TestHandler extends FXMLScreenHandler implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         testController = new TestController(this);
+        value.setText(testController.value);
     }
 
     public void updateText(String message){

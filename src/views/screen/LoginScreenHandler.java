@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import utils.Configs;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class LoginScreenHandler extends FXMLScreenHandler{
     @FXML
@@ -25,10 +26,25 @@ public class LoginScreenHandler extends FXMLScreenHandler{
         loginController = new LoginController();
         // set login button action
         loginBtn.setOnAction(e->{
-            System.out.println("user name" + username.getText());
-            System.out.println("password" + password.getText());
+            // send message
+            try {
+                loginController.sendMessage(username.getText(), password.getText());
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+
+            // manage UI
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
             String result = loginController.getResult();
-            if ( result.equals("Success")){
+            while (result.equals("pending")) result = loginController.getResult();
+
+            if ( result.equals("true")){
                 // show home screen
                 try {
                     HomeScreenHandler homeScreenHandler = new HomeScreenHandler(Configs.HOME_SCREEN_PATH,this.stage);
