@@ -3,6 +3,7 @@ package views.screen;
 import controller.HomeController;
 import controller.LogoutController;
 import entity.Room;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -33,11 +34,17 @@ public class HomeScreenHandler extends FXMLScreenHandler implements Initializabl
         homeController = new HomeController();
 
         // Add the Open Room to Home Screen
-        try {
-            OpenRoomsHandler openRoomsHandler = new OpenRoomsHandler(Configs.OPEN_ROOMS_PATH);
-            middleBox.getChildren().add(openRoomsHandler.getContent());
-        } catch (IOException e) {
-            e.printStackTrace();
+        {
+            Platform.runLater(()->{
+                OpenRoomsHandler openRoomsHandler = null;
+                try {
+                    openRoomsHandler = new OpenRoomsHandler(Configs.OPEN_ROOMS_PATH);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                middleBox.getChildren().add(openRoomsHandler.getContent());
+            });
+
         }
         logoutBtn.setOnAction(e->{
             LogoutController logoutController = new LogoutController();

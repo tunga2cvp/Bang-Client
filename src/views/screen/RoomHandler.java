@@ -1,6 +1,7 @@
 package views.screen;
 
 import entity.Room;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -25,17 +26,13 @@ public class RoomHandler extends FXMLScreenHandler implements Initializable {
     public RoomHandler(String screenPath, Room room) throws IOException {
         super(screenPath);
         this.room = room;
-        roomName.setText(room.getName());
-        playerNum.setText(String.valueOf(room.getPlayerNum()).concat("/7"));
+        Platform.runLater(()->{
+            roomName.setText(room.getName());
+            playerNum.setText(String.valueOf(room.getPlayerNum()));
+        });
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        roomBtn.setOnMouseEntered(e->{
-            roomBtn.setStyle("fx-background-color:red");
-        });
-        roomBtn.setOnMouseExited(e->{
-            roomBtn.setStyle("fx-background-color:blue");
-        });
     }
 }

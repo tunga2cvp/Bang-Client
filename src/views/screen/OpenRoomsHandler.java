@@ -2,6 +2,7 @@ package views.screen;
 
 import controller.OpenRoomsController;
 import entity.Room;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
@@ -26,6 +27,7 @@ public class OpenRoomsHandler extends FXMLScreenHandler implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle) {
         OpenRoomsController openRoomsController = new OpenRoomsController();
          //Add open rooms to the board
+        Platform.runLater(()->{
         List roomList = openRoomsController.getOpenRoomsList();
         List roomItems = new ArrayList<>();
         for (Object object : roomList) {
@@ -38,7 +40,9 @@ public class OpenRoomsHandler extends FXMLScreenHandler implements Initializable
             }
             roomItems.add(c1);
         }
-        addRoom(roomItems);
+
+            addRoom(roomItems);
+        });
     }
     public void addRoom(List items){
         ArrayList openRoomItems = (ArrayList)((ArrayList) items).clone();

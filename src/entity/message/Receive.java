@@ -3,7 +3,8 @@ package entity.message;
 public class Receive {
 
     private String command;
-
+    String type;
+    String msg;
     public Receive() {
 
     }
