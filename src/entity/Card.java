@@ -11,16 +11,19 @@ public class Card {
         this.name = name;
         this.type = type;
     }
+    public Card(String name){
+        this.name = name;
+    }
     public Card(){
 
     }
     public List getCardList(){
         List<Card> cardList = new ArrayList<Card>();
-        cardList.add(new Card("bang","offense"));
-        cardList.add(new Card("miss","defense"));
-        cardList.add(new Card("bang","offense"));
-        cardList.add(new Card("miss","defense"));
-        cardList.add(new Card("winchester","equip"));
+//        cardList.add(new Card("bang","offense"));
+//        cardList.add(new Card("miss","defense"));
+//        cardList.add(new Card("bang","offense"));
+//        cardList.add(new Card("miss","defense"));
+//        cardList.add(new Card("winchester","equip"));
         return cardList;
     }
     public String getImageURL(){
@@ -29,7 +32,7 @@ public class Card {
         String name = this.name;
         String last = ".jpg";
         String url = begin.concat(name).concat(last);
-        System.out.println(url);
+//        System.out.println(url);
         return url;
     }
     public String getName(){

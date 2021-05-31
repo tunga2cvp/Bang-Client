@@ -47,8 +47,10 @@ public class LoginScreenHandler extends FXMLScreenHandler{
             if ( result.equals("true")){
                 // show home screen
                 try {
-                    HomeScreenHandler homeScreenHandler = new HomeScreenHandler(Configs.HOME_SCREEN_PATH,this.stage);
-                    homeScreenHandler.show();
+//                    HomeScreenHandler homeScreenHandler = new HomeScreenHandler(Configs.HOME_SCREEN_PATH,this.stage);
+//                    homeScreenHandler.show();
+                    HomeScreenHandler.setHomeScreenHandler(Configs.HOME_SCREEN_PATH,this.stage);
+                    HomeScreenHandler.getHomescreenHandler().show();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

@@ -24,12 +24,7 @@
                                 <Font name="Bodoni MT Poster Compressed" size="96.0" />
                             </font>
                         </Label>
-                        <Button fx:id="showRoomBtn" layoutX="-3.0" layoutY="193.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" text="Open Rooms">
-                            <font>
-                                <Font name="Baskerville Old Face" size="28.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="createRoomBtn" layoutX="-1.0" layoutY="284.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" text="Create Room">
+                        <Button fx:id="createRoomBtn" layoutY="463.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="200.0" text="Create Room">
                             <font>
                                 <Font name="Baskerville Old Face" size="28.0" />
                             </font>

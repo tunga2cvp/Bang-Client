@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="1050.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,38 +19,38 @@
       </ImageView>
       <BorderPane layoutX="-5.0" layoutY="12.0" prefHeight="688.0" prefWidth="1100.0" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="12.0">
          <bottom>
-            <AnchorPane prefHeight="58.0" prefWidth="1100.0" style="-fx-border-radius: 10px; -fx-border-color: #aba229;" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="58.0" prefWidth="1100.0" style="-fx-border-radius: 10px;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="playerRole" fitHeight="190.0" fitWidth="124.0" layoutX="12.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                  <HBox fx:id="cards" alignment="CENTER" layoutX="156.0" layoutY="3.0" prefHeight="181.0" prefWidth="746.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="1.0" />
-                  <ImageView fitHeight="30.0" fitWidth="44.0" layoutX="1006.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="playerRole" fitHeight="152.0" fitWidth="127.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                  <HBox fx:id="cards" alignment="CENTER" layoutX="130.0" layoutY="3.0" prefHeight="143.0" prefWidth="745.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="228.0" AnchorPane.topAnchor="2.0" />
+                  <ImageView fitHeight="30.0" fitWidth="44.0" layoutX="1015.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/heart.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="playBtn" layoutX="995.0" layoutY="46.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" text="Play">
+                  <Button fx:id="playBtn" layoutX="1002.0" layoutY="35.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" text="Play">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="endturnBtn" layoutX="995.0" layoutY="95.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" style="-fx-background-color: #4e76d4;" text="End Turn">
+                  <Button fx:id="endturnBtn" layoutX="1002.0" layoutY="74.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" style="-fx-background-color: #4e76d4;" text="End Turn">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label fx:id="playerHealth" layoutX="1055.0" layoutY="7.0" text="4" textFill="WHITE">
+                  <Label fx:id="playerHealth" layoutX="1064.0" layoutY="-3.0" text="4" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="discardBtn" layoutX="995.0" layoutY="144.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" style="-fx-background-color: #db5858;" text="Discard">
+                  <Button fx:id="discardBtn" layoutX="1002.0" layoutY="112.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" style="-fx-background-color: #db5858;" text="Discard">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <AnchorPane layoutX="877.0" layoutY="20.0" prefHeight="143.0" prefWidth="97.0" style="-fx-border-color: #0dfcd8;">
+                  <AnchorPane layoutX="877.0" layoutY="1.0" prefHeight="140.0" prefWidth="108.0" style="-fx-border-color: #0dfcd8; -fx-border-radius: 10px;">
                      <children>
-                        <ImageView fitHeight="147.0" fitWidth="94.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="equippedCard" fitHeight="159.0" fitWidth="105.0" layoutX="1.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
                </children>
@@ -64,17 +64,28 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane prefHeight="271.0" prefWidth="359.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="331.0" prefWidth="233.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox fx:id="leftOpponentPlace" alignment="CENTER" prefHeight="331.0" prefWidth="359.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <VBox fx:id="leftOpponentPlace" alignment="CENTER" prefHeight="332.0" prefWidth="233.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children></AnchorPane>
          </left>
          <right>
-            <AnchorPane prefHeight="328.0" prefWidth="165.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="331.0" prefWidth="201.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox fx:id="rightOpponentPlace" alignment="CENTER" prefHeight="331.0" prefWidth="165.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <VBox fx:id="rightOpponentPlace" alignment="CENTER" prefHeight="331.0" prefWidth="243.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children></AnchorPane>
          </right>
+         <center>
+            <VBox prefHeight="336.0" prefWidth="666.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="playerTurn" alignment="CENTER" contentDisplay="CENTER" prefHeight="331.0" prefWidth="666.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="Baskerville Old Face" size="53.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

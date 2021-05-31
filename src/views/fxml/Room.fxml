@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="roomSpace" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="roomSpace" prefHeight="73.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="roomBtn" mnemonicParsing="false">
+      <Button fx:id="roomBtn" layoutX="32.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="705.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <graphic>
-            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="713.0">
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="710.0">
                <children>
                   <AnchorPane prefHeight="65.0" prefWidth="321.0">
                      <children>

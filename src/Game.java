@@ -12,6 +12,7 @@ import javafx.scene.layout.StackPane;
 import utils.Client;
 import utils.Configs;
 import views.screen.BoardScreenHandler;
+import views.screen.LobbyScreenHandler;
 import views.screen.LoginScreenHandler;
 import views.screen.TestHandler;
 
@@ -60,6 +61,10 @@ public class Game extends Application {
                 try {
                     LoginScreenHandler loginScreenHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
                     loginScreenHandler.show();
+//                    BoardScreenHandler.setBoardScreenHandler(Configs.BOARD_SCREEN_PATH, primaryStage);
+//                    BoardScreenHandler.getBoardScreenHandler().show();
+//                    LobbyScreenHandler.setLobbyScreenHandler(Configs.LOBBY_SCREEN_PATH, primaryStage);
+//                    LobbyScreenHandler.getLobbyScreenHandler().show();
 //                    BoardScreenHandler boardScreenHandler = new BoardScreenHandler(Configs.BOARD_SCREEN_PATH, primaryStage);
 //                    boardScreenHandler.show();
 //                    TestHandler testHandler = new TestHandler(Configs.TEST_PATH,primaryStage);

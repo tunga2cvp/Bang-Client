@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    String name;
     int playerNum;
     int cardNum;
     int health;
@@ -12,13 +13,24 @@ public class Player {
     String role;
     public Player(){
     }
-    public Player(int playerNum, int cardNum, int health) {
+    public Player(String name){
+        this.name = name;
+    }
+    public Player(String name, int playerNum, int cardNum, int health, String equippedCard) {
+        this.name = name;
         this.playerNum = playerNum;
         this.cardNum = cardNum;
         this.health = health;
-        isSheriff = (health == 5);
+        isSheriff = false;
+        if ( equippedCard!= null) {
+            Card card = new Card(equippedCard);
+            this.equippedCard = card;
+        }
     }
 
+    public void setIsSheriff(){
+        isSheriff = true;
+    }
     public int getPlayerNum() {
         return playerNum;
     }
@@ -36,5 +48,8 @@ public class Player {
     }
     public String getRole(){
         return  role;
+    }
+    public String getName(){
+        return name;
     }
 }

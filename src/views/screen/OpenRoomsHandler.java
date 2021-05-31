@@ -18,11 +18,36 @@ import java.util.ResourceBundle;
 public class OpenRoomsHandler extends FXMLScreenHandler implements Initializable {
     @FXML
     VBox roomList;
+    private static OpenRoomsHandler openroomhandler;
 
+    public static void setOpenroomhandler(String screenPath) throws IOException {
+        openroomhandler = new OpenRoomsHandler(screenPath);
+    }
+    public static OpenRoomsHandler getOpenroomhandlerHandler() throws IOException {
+        return openroomhandler;
+    }
     public OpenRoomsHandler(String screenPath) throws IOException {
         super(screenPath);
     }
-
+    public void reload(){
+        Platform.runLater(()->{
+            roomList.getChildren().clear();
+            OpenRoomsController openRoomsController = new OpenRoomsController();
+            List roomList = openRoomsController.getOpenRoomsList();
+            List roomItems = new ArrayList<>();
+            for (Object object : roomList) {
+                Room room = (Room) object;
+                RoomHandler c1 = null;
+                try {
+                    c1 = new RoomHandler(Configs.ROOM_PATH, room);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                roomItems.add(c1);
+            }
+            addRoom(roomItems);
+        });
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         OpenRoomsController openRoomsController = new OpenRoomsController();
@@ -40,7 +65,6 @@ public class OpenRoomsHandler extends FXMLScreenHandler implements Initializable
             }
             roomItems.add(c1);
         }
-
             addRoom(roomItems);
         });
     }

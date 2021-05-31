@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import entity.Me;
 import entity.message.LoginSend;
 import entity.message.SignUpSend;
 import utils.Client;
@@ -24,5 +25,6 @@ public class LoginController {
         System.out.println(json);
         // send to server
         Client.sendMessage(json);
+        Me.name = username;
     }
 }

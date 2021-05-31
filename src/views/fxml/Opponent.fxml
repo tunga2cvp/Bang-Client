@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="160.0" prefWidth="347.0" style="-fx-border-color: #aba229; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="160.0" prefWidth="347.0" style="-fx-border-color: #aba229; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="opponentName" layoutX="99.0" layoutY="14.0" text="3" textFill="WHITE">
+      <Label fx:id="opponentName" alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="14.0" prefHeight="31.0" prefWidth="46.0" text="3" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="21.0" />
          </font>
@@ -31,11 +31,6 @@
          <image>
             <Image url="@../../assets/Cards/equipCard.jpg" />
          </image></ImageView>
-      <Label layoutX="32.0" layoutY="14.0" text="Player" textFill="WHITE">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
       <Label layoutX="26.0" layoutY="56.0" text="CardNum" textFill="WHITE">
          <font>
             <Font size="21.0" />

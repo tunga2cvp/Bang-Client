@@ -46,7 +46,7 @@ public class SignUpScreenHandler extends FXMLScreenHandler{
             else if ( signUpController.getResult().equals("true")) {
                 try {
                     PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
-                    popUpHandler.SignUp(true);
+                    popUpHandler.SignUp(true, this.stage);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -54,7 +54,7 @@ public class SignUpScreenHandler extends FXMLScreenHandler{
             else {
                 try {
                     PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
-                    popUpHandler.SignUp(false);
+                    popUpHandler.SignUp(false, this.stage);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

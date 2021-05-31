@@ -14,4 +14,7 @@ public class Configs {
     public static final String OPEN_ROOMS_PATH = "/views/fxml/OpenRooms.fxml";
     public static final String ROOM_PATH = "/views/fxml/Room.fxml";
     public static final String TEST_PATH = "/views/fxml/test.fxml";
+    public static final String LOBBY_SCREEN_PATH = "/views/fxml/LobbyScreen.fxml";
+    public static final String LOBBY_PATH = "/views/fxml/Lobby.fxml";
+    public static final String PLAYER_PATH = "/views/fxml/Player.fxml";
 }
