@@ -15,7 +15,7 @@ public class BoardController {
     private static ArrayList<Player> farOpponents;
     private static Player leftOpponent;
     private static Player rightOpponent;
-    public static ArrayList<Player> playersList;
+    public static ArrayList<Player> playersList = new ArrayList<>();
     public static int playerNum;
     public static String playerRole;
     public static Card playingCard;
