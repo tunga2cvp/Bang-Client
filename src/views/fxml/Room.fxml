@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="roomSpace" prefHeight="73.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="roomSpace" prefHeight="73.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="roomBtn" layoutX="32.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="705.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <graphic>
@@ -32,9 +32,22 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="65.0" prefWidth="513.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="453.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="CENTER" prefHeight="83.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label fx:id="playerNum" text="Player Number">
+                                 <font>
+                                    <Font name="Baskerville Old Face" size="29.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="-49.0" prefHeight="83.0" prefWidth="149.0">
+                           <children>
+                              <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" text="Status" textAlignment="CENTER">
                                  <font>
                                     <Font name="Baskerville Old Face" size="29.0" />
                                  </font>

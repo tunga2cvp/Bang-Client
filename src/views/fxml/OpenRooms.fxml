@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="roomBox" prefHeight="687.0" prefWidth="713.0" style="-fx-background-color: #c2a68a;" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="roomBox" prefHeight="687.0" prefWidth="713.0" style="-fx-background-color: #c2a68a;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="143.0" layoutY="14.0" text="Open Rooms List">
          <font>
@@ -20,9 +20,9 @@
                <children>
                   <HBox prefHeight="65.0" prefWidth="713.0">
                      <children>
-                        <AnchorPane prefHeight="65.0" prefWidth="418.0" style="-fx-border-width: 5 5 5 0; -fx-border-color: grey;">
+                        <AnchorPane prefHeight="65.0" prefWidth="267.0" style="-fx-border-width: 5 5 5 0; -fx-border-color: grey;">
                            <children>
-                              <Label layoutX="119.0" layoutY="15.0" text="Name">
+                              <Label layoutX="72.0" layoutY="15.0" text="Name">
                                  <font>
                                     <Font name="Baskerville Old Face" size="29.0" />
                                  </font>
@@ -32,9 +32,18 @@
                               <Insets />
                            </opaqueInsets>
                         </AnchorPane>
-                        <AnchorPane prefHeight="65.0" prefWidth="515.0" style="-fx-border-width: 5 0 5  0; -fx-border-color: grey;">
+                        <AnchorPane prefHeight="65.0" prefWidth="406.0" style="-fx-border-width: 5 5 5  0; -fx-border-color: grey;">
                            <children>
-                              <Label layoutX="114.0" layoutY="15.0" text="Player Number">
+                              <Label layoutX="88.0" layoutY="15.0" text="Player Number">
+                                 <font>
+                                    <Font name="Baskerville Old Face" size="29.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 5 5 5  0; -fx-border-color: grey;">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="15.0" text="Status" textAlignment="CENTER">
                                  <font>
                                     <Font name="Baskerville Old Face" size="29.0" />
                                  </font>

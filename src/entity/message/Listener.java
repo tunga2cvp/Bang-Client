@@ -40,18 +40,19 @@ public class Listener {
                     OpenRoomsController.roomList = new ArrayList<Room>();
                     for (String key : set) {
                         System.out.println(key + " " + loginReceive.getLobby().get(key));
-                        Room room = new Room(key, loginReceive.getLobby().get(key));
+                        Room room = new Room(key, loginReceive.getLobby().get(key).getMemberNum(), loginReceive.getLobby().get(key).isPlaying());
                         OpenRoomsController.roomList.add(room);
                     }
                 }
                 break;
+
             case "lobbynotify":
                 LobbyNotifyReceive lobbyNotifyReceive = gson.fromJson(message, LobbyNotifyReceive.class);
                 Set<String> lobbyset = lobbyNotifyReceive.getLobby().keySet();
                 OpenRoomsController.roomList = new ArrayList<Room>();
                 for (String key : lobbyset) {
                     System.out.println(key + " " + lobbyNotifyReceive.getLobby().get(key));
-                    Room room = new Room(key, lobbyNotifyReceive.getLobby().get(key));
+                    Room room = new Room(key, lobbyNotifyReceive.getLobby().get(key).getMemberNum(), lobbyNotifyReceive.getLobby().get(key).isPlaying());
                     OpenRoomsController.roomList.add(room);
                 }
                 HomeScreenHandler.getHomescreenHandler().reload();
@@ -60,7 +61,7 @@ public class Listener {
             case "logout":
                 System.out.println("logout result = " + JsonHandler.getStringAttribute(message, "msg"));
                 break;
-                
+
             case "createroom":
                 CreatRoomReceive creatRoomReceive = gson.fromJson(message, CreatRoomReceive.class);
                 CreateRoomController.msg = JsonHandler.getStringAttribute(message, "msg");

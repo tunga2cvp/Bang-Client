@@ -26,6 +26,8 @@ public class RoomHandler extends FXMLScreenHandler implements Initializable {
     @FXML
     Button roomBtn;
     Room room;
+    @FXML
+    Label status;
 
     public RoomHandler(String screenPath, Room room) throws IOException {
         super(screenPath);
@@ -34,6 +36,13 @@ public class RoomHandler extends FXMLScreenHandler implements Initializable {
             roomName.setText(room.getName());
             playerNum.setText(String.valueOf(room.getPlayerNum()));
         });
+        // set room status
+        if ( room.isPlaying()){
+            status.setText("playing");
+        }
+        else{
+            status.setText("open");
+        }
     }
 
     @Override
@@ -53,6 +62,7 @@ public class RoomHandler extends FXMLScreenHandler implements Initializable {
             });
             roomName.setText(room.getName());
             playerNum.setText(String.valueOf(room.getPlayerNum()));
+
         });
     }
 }
