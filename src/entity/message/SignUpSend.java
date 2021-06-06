@@ -1,7 +1,6 @@
 package entity.message;
 
 public class SignUpSend extends Send{
-    String type = "signup";
     String username;
     String password;
     public SignUpSend(String msg, String username, String password) {
