@@ -23,6 +23,8 @@ public class OpponentHandler extends FXMLScreenHandler{
     ImageView equipCard;
     @FXML
     ImageView role;
+    @FXML
+    ImageView alive;
 
     public OpponentHandler(String screenPath, Player player) throws IOException {
         super(screenPath, new Stage());
@@ -42,6 +44,20 @@ public class OpponentHandler extends FXMLScreenHandler{
             File file = new File(player.getEquippedCard().getImageURL());
             Image image = new Image(file.toURI().toString());
             equipCard.setImage(image);
+        }
+
+        // if player died
+        if ( player.getHealth() <=0 ) {
+            // set skull image
+            File file = new File("src/assets/death.png");
+            Image image = new Image(file.toURI().toString());
+            alive.setImage(image);
+
+            // set role
+            File rolefile = new File(player.getRoleImageURL());
+            Image roleimage = new Image(rolefile.toURI().toString());
+            role.setImage(roleimage);
+            System.out.println(player.getRoleImageURL());
         }
     }
 }

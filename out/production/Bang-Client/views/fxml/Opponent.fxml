@@ -36,7 +36,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <ImageView fitHeight="57.0" fitWidth="46.0" layoutX="48.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="alive" fitHeight="57.0" fitWidth="46.0" layoutX="48.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/heart.png" />
          </image>

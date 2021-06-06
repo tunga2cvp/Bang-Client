@@ -56,9 +56,11 @@ public class Listener {
                 }
                 HomeScreenHandler.getHomescreenHandler().reload();
                 break;
+
             case "logout":
                 System.out.println("logout result = " + JsonHandler.getStringAttribute(message, "msg"));
                 break;
+                
             case "createroom":
                 CreatRoomReceive creatRoomReceive = gson.fromJson(message, CreatRoomReceive.class);
                 CreateRoomController.msg = JsonHandler.getStringAttribute(message, "msg");
@@ -304,6 +306,34 @@ public class Listener {
                         e.printStackTrace();
                     }
                     popUpHandler.ActionDiscard(actionDiscard.numDiscard);
+                });
+                break;
+            case "player_death":
+                PlayerDeath playerDeath = gson.fromJson(message, PlayerDeath.class);
+                BoardController.playersList.get(playerDeath.id).setRole(playerDeath.role);
+                // reset the player status
+                Platform.runLater(()-> {
+                    try {
+                        BoardScreenHandler.getBoardScreenHandler().reloadPlayerStatus();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                break;
+            case "end_game":
+                EndGameMessage endGameMessage = gson.fromJson(message, EndGameMessage.class);
+                Platform.runLater(()-> {
+                    EndGameHandler endGameHandler = null;
+                    try {
+                        endGameHandler = new EndGameHandler(Configs.END_GAME_PATH, new Stage());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        endGameHandler.EndGame(endGameMessage.victoryRole, BoardScreenHandler.getBoardScreenHandler().stage);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 });
                 break;
             default:

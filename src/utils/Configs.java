@@ -17,4 +17,5 @@ public class Configs {
     public static final String LOBBY_SCREEN_PATH = "/views/fxml/LobbyScreen.fxml";
     public static final String LOBBY_PATH = "/views/fxml/Lobby.fxml";
     public static final String PLAYER_PATH = "/views/fxml/Player.fxml";
+    public static final String END_GAME_PATH = "/views/fxml/EndGame.fxml";
 }

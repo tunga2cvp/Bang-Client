@@ -40,6 +40,9 @@ public class Player {
     public int getHealth(){
         return health;
     }
+    public void setRole(String role){
+        this.role = role;
+    }
     public boolean getIsSheriff(){
         return isSheriff;
     }
@@ -51,5 +54,11 @@ public class Player {
     }
     public String getName(){
         return name;
+    }
+    public String getRoleImageURL(){
+        String begin = "src/assets/Roles/";
+        String last = ".jpg";
+        String url = begin.concat(role).concat(last);
+        return url;
     }
 }

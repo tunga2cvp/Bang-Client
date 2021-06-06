@@ -222,8 +222,18 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
                     }
                     BoardController.playingCard = null; // reset after play a card
                     break;
+                case "Beer":
+                    PlayTurnSend playBeer = new PlayTurnSend("Beer", "SELF_TARGET","",BoardController.playerNum );
+                    String playBeerMsg = gson.toJson(playBeer);
+                    try {
+                        Client.sendMessage(playBeerMsg);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    BoardController.playingCard = null; // reset after play a card
+                    break;
                 default:
-                    System.out.println("no card where selected");
+                    System.out.println(BoardController.playingCard.getName());
             }
         });
 
@@ -482,6 +492,16 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
                             String json1 = gson.toJson(playTurnSend1);
                             try {
                                 Client.sendMessage(json1);
+                            } catch (IOException ioException) {
+                                ioException.printStackTrace();
+                            }
+                            BoardController.playingCard = null; // reset after play a card
+                            break;
+                        case "Beer":
+                            PlayTurnSend playBeer = new PlayTurnSend("Beer", "SELF_TARGET","",BoardController.playerNum );
+                            String playBeerMsg = gson.toJson(playBeer);
+                            try {
+                                Client.sendMessage(playBeerMsg);
                             } catch (IOException ioException) {
                                 ioException.printStackTrace();
                             }
