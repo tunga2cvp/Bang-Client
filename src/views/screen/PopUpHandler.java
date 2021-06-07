@@ -19,6 +19,28 @@ public class PopUpHandler extends FXMLScreenHandler{
     public PopUpHandler(String screenPath, Stage stage) throws IOException {
         super(screenPath, stage);
     }
+    public void MyDeath(){
+        Platform.runLater(()-> {
+            content.setText("YOU DIED!");
+            instruction.setText("Pathetic");
+            actionBtn.setOnAction(e -> {
+                stage.close();
+            });
+            actionBtn.setText("Close");
+            show();
+        });
+    }
+    public void DeadButtons(){
+        Platform.runLater(()-> {
+            content.setText("You already dead!");
+            instruction.setText("Don't be a dumb ghost");
+            actionBtn.setOnAction(e -> {
+                stage.close();
+            });
+            actionBtn.setText("Close");
+            show();
+        });
+    }
     public void StartGameFailed(){
         Platform.runLater(()-> {
             content.setText("Start Game Failed!");

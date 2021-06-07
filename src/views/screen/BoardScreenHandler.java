@@ -397,6 +397,35 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
             }
             addCardBoard(cardItems);
         }
+        public void setDeathPlayerButtons(){
+            playBtn.setOnAction(e->{
+                try {
+                    PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
+                    popUpHandler.DeadButtons();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            });
+            discardBtn.setOnAction(e->{
+                try {
+                    PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
+                    popUpHandler.DeadButtons();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            });
+            endturnBtn.setOnAction(e->{
+                try {
+                    PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
+                    popUpHandler.DeadButtons();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            });
+        }
         public void reloadButtons(){
         // clear old function
             playBtn.setOnAction(null);

@@ -228,33 +228,37 @@ public class Listener {
                 });
                 break;
             case "update_public_ingame":
-                UpdatePublicInGame updatePublicInGame = gson.fromJson(message, UpdatePublicInGame.class);
-                ArrayList<PlayerPublicInitial> changedPlayers = (ArrayList<PlayerPublicInitial>) updatePublicInGame.getPlayerList().clone();
+                if (BoardController.playersList != null) {
+                    UpdatePublicInGame updatePublicInGame = gson.fromJson(message, UpdatePublicInGame.class);
+                    ArrayList<PlayerPublicInitial> changedPlayers = (ArrayList<PlayerPublicInitial>) updatePublicInGame.getPlayerList().clone();
 
-                // replace the changed player
-                if ( changedPlayers != null){
-                    for (int i =0; i < changedPlayers.size(); i++){
-                        int idChanged  = changedPlayers.get(i).getId();
-                        Player changedPlayer = new Player(changedPlayers.get(i).getName(), changedPlayers.get(i).getId(), changedPlayers.get(i).getNumCards(), changedPlayers.get(i).getHealth(), changedPlayers.get(i).getEquipCard());
-                        BoardController.playersList.remove(idChanged);
-                        BoardController.playersList.add(idChanged, changedPlayer);
+                    // replace the changed player
+
+                    if (changedPlayers != null) {
+                        for (int i = 0; i < changedPlayers.size(); i++) {
+                            int idChanged = changedPlayers.get(i).getId();
+                            Player changedPlayer = new Player(changedPlayers.get(i).getName(), changedPlayers.get(i).getId(), changedPlayers.get(i).getNumCards(), changedPlayers.get(i).getHealth(), changedPlayers.get(i).getEquipCard());
+                            BoardController.playersList.remove(idChanged);
+                            BoardController.playersList.add(idChanged, changedPlayer);
 //                        System.out.println(changedPlayer.getCardNum());
+                        }
                     }
+
+                    // reset the position
+                    BoardController.setOpponentPosition();
+
+                    //  reset sheriff incase sheriff changed
+                    BoardController.playersList.get(BoardController.idSheriff).setIsSheriff();
+
+                    // reset the player status
+                    Platform.runLater(() -> {
+                        try {
+                            BoardScreenHandler.getBoardScreenHandler().reloadPlayerStatus();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
                 }
-                // reset the position
-                BoardController.setOpponentPosition();
-
-                //  reset sheriff incase sheriff changed
-                BoardController.playersList.get(BoardController.idSheriff).setIsSheriff();
-
-                // reset the player status
-                Platform.runLater(()-> {
-                    try {
-                        BoardScreenHandler.getBoardScreenHandler().reloadPlayerStatus();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
                 break;
             case "update_private_ingame":
                 UpdatePrivateInGame updatePrivateInGame = gson.fromJson(message, UpdatePrivateInGame.class);
@@ -311,15 +315,40 @@ public class Listener {
                 break;
             case "player_death":
                 PlayerDeath playerDeath = gson.fromJson(message, PlayerDeath.class);
-                BoardController.playersList.get(playerDeath.id).setRole(playerDeath.role);
-                // reset the player status
-                Platform.runLater(()-> {
-                    try {
-                        BoardScreenHandler.getBoardScreenHandler().reloadPlayerStatus();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
+                // if my death
+                if (playerDeath.id == BoardController.playerNum){
+                    // popup
+                    Platform.runLater(()-> {
+                        PopUpHandler popUpHandler = null;
+                        try {
+                            popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        popUpHandler.MyDeath();
+                    });
+                    // disable buttons
+                    Platform.runLater(()-> {
+                        try {
+                            BoardScreenHandler.getBoardScreenHandler().setDeathPlayerButtons();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+
+                // if opponent death
+                else {
+                    BoardController.playersList.get(playerDeath.id).setRole(playerDeath.role);
+                    // reset the player status
+                    Platform.runLater(() -> {
+                        try {
+                            BoardScreenHandler.getBoardScreenHandler().reloadPlayerStatus();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
                 break;
             case "end_game":
                 EndGameMessage endGameMessage = gson.fromJson(message, EndGameMessage.class);
