@@ -336,6 +336,17 @@ public class Listener {
                         e.printStackTrace();
                     }
                 });
+
+                // reset board state
+                BoardController.playersList = null;
+                BoardController.setOpponentPosition();
+                Platform.runLater(()-> {
+                    try {
+                        BoardScreenHandler.getBoardScreenHandler().reloadPlayerStatus();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
                 break;
             default:
                 System.out.println("unknown command:" + command);

@@ -326,10 +326,12 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
             rightOpponentPlace.getChildren().clear();
 
             // Add my equipped card to the board
-            if (BoardController.getPlayer().getEquippedCard()!=null && !"".equals(BoardController.getPlayer().getEquippedCard().getName())) {
-                File file = new File(BoardController.getPlayer().getEquippedCard().getImageURL());
-                Image image = new Image(file.toURI().toString());
-                equippedCard.setImage(image);
+            if ( BoardController.getPlayer() != null){
+                if (BoardController.getPlayer().getEquippedCard()!=null && !"".equals(BoardController.getPlayer().getEquippedCard().getName())) {
+                    File file = new File(BoardController.getPlayer().getEquippedCard().getImageURL());
+                    Image image = new Image(file.toURI().toString());
+                    equippedCard.setImage(image);
+                }
             }
 
             // Add opponents to the board
@@ -373,8 +375,9 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
                 rightOpponentPlace.getChildren().add(or.getContent());
             }
             // set player health
-            playerHealth.setText(String.valueOf(boardController.getPlayerHealth()));
-
+            if (boardController.getPlayer() != null) {
+                playerHealth.setText(String.valueOf(boardController.getPlayerHealth()));
+            }
         }
         public void reloadCardList(){
             // remove old cards
