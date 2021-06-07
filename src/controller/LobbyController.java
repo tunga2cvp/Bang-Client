@@ -11,8 +11,9 @@ public class LobbyController {
     public static String roomName;
 
     public List getPlayerList(){
-        if (playerList != null)
+        if (playerList != null) {
             return playerList;
+        }
         else {
             playerList = new ArrayList<Player>();
             Player host = new Player(roomName);

@@ -68,7 +68,8 @@ public class Listener {
 //                System.out.println(CreateRoomController.msg);
 
                 if (creatRoomReceive.result) {
-                    System.out.println(JsonHandler.getStringAttribute(message, "roomid"));
+                    LobbyController.playerList = null;
+//                    System.out.println(JsonHandler.getStringAttribute(message, "roomid"));
                     LobbyController.roomName = JsonHandler.getStringAttribute(message, "roomid");
                     HomeScreenHandler.getHomescreenHandler().showroom();
                 }

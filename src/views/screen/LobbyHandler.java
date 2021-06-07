@@ -42,6 +42,7 @@ public class LobbyHandler extends FXMLScreenHandler implements Initializable {
         Platform.runLater(()->{
             roomName.setText(lobbyController.getRoomName().concat("'s room"));
             List playerList = lobbyController.getPlayerList();
+
             List playerItems = new ArrayList<>();
             for (Object object : playerList) {
                 Player player = (Player) object;
