@@ -79,7 +79,7 @@ public class BoardController {
                     leftOpponent = playersList.get(0);
                 } else {
                     rightOpponent = playersList.get(playerNum - 1);
-                    leftOpponent = playersList.get(playerNum);
+                    leftOpponent = playersList.get(playerNum + 1);
                 }
 
                 // setting list of far opponents

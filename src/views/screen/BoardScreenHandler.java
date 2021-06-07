@@ -53,7 +53,8 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
     Label playerTurn;
     @FXML
     private  ImageView equippedCard;
-
+    @FXML
+    Label myName;
     public BoardScreenHandler(String screenPath, Stage stage) throws IOException {
         super(screenPath, stage);
     }
@@ -69,6 +70,10 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
             boardController = new BoardController();
+            // set my name
+        if ( boardController.getPlayer() != null){
+            myName.setText(boardController.getPlayer().getName());
+        }
             // Add my equipped card to the board
         if (BoardController.getPlayer().getEquippedCard()!=null && !"".equals(BoardController.getPlayer().getEquippedCard().getName())) {
             File file = new File(BoardController.getPlayer().getEquippedCard().getImageURL());

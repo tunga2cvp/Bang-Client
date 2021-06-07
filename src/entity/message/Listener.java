@@ -376,6 +376,8 @@ public class Listener {
                         e.printStackTrace();
                     }
                 });
+                // reset lobby state
+                LobbyController.playerList = null;
                 break;
             default:
                 System.out.println("unknown command:" + command);
