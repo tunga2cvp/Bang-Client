@@ -107,6 +107,17 @@ public class PopUpHandler extends FXMLScreenHandler{
             show();
         });
     }
+    public void InvalidTarget(){
+        Platform.runLater(()-> {
+            content.setText("Invalid Target!");
+            instruction.setText("Do you know how to shoot?");
+            actionBtn.setOnAction(e -> {
+                stage.close();
+            });
+            actionBtn.setText("Close");
+            show();
+        });
+    }
     public void JoinRoomFailed(){
         Platform.runLater(()-> {
             content.setText("Join Room failed!");

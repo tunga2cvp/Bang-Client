@@ -337,6 +337,18 @@ public class Listener {
                 });
                 break;
             case "action_turn":
+                String actionMsg = JsonHandler.getStringAttribute(message, "msg");
+                if (actionMsg != "" && actionMsg!= null){
+                    Platform.runLater(()-> {
+                        PopUpHandler popUpHandler = null;
+                        try {
+                            popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        popUpHandler.InvalidTarget();
+                    });
+                }
                 break;
             case "action_discard":
                 ActionDiscard actionDiscard = gson.fromJson(message, ActionDiscard.class);
