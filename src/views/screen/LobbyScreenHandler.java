@@ -2,13 +2,20 @@ package views.screen;
 
 import com.google.gson.Gson;
 import controller.CreateRoomController;
+import entity.message.ChatSend;
 import entity.message.LeaveRoomSend;
 import entity.message.StartGameSend;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import utils.Client;
 import utils.Configs;
@@ -25,6 +32,13 @@ public class LobbyScreenHandler extends FXMLScreenHandler implements Initializab
     Button leaveRoomBtn;
     @FXML
     Button startGameBtn;
+    @FXML
+    GridPane chatDisplay;
+    @FXML
+    TextField content;
+    @FXML
+    Button sendBtn;
+    int i = 0;
     private static LobbyScreenHandler lobbyscreenhandler;
 
     public static void setLobbyScreenHandler(String screenPath, Stage stage) throws IOException {
@@ -88,6 +102,17 @@ public class LobbyScreenHandler extends FXMLScreenHandler implements Initializab
                 ioException.printStackTrace();
             }
         });
+        sendBtn.setOnAction(e->{
+            ChatSend chatSend = new ChatSend(content.getText());
+            Gson gson = new Gson();
+            String json = gson.toJson(chatSend);
+            try {
+                Client.sendMessage(json);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            content.setText("");
+        });
     }
     public void  reload(){
         Platform.runLater(()->{
@@ -106,5 +131,23 @@ public class LobbyScreenHandler extends FXMLScreenHandler implements Initializab
     public void showBoard() throws IOException {
         BoardScreenHandler.setBoardScreenHandler(Configs.BOARD_SCREEN_PATH, this.stage);
         BoardScreenHandler.getBoardScreenHandler().show();
+    }
+    public void addChat(String playerName, String msg){
+        Text playerText = new Text();
+        playerText.setFont(Font.font("Baskerville Old Face", 15));
+        playerText.setText(playerName.concat(":"));
+        playerText.setFill(Color.RED);
+        GridPane.setConstraints(playerText, 0, i);
+        GridPane.setHalignment(playerText, HPos.CENTER);
+
+        Text msgText = new Text();
+        msgText.setFont(Font.font("Baskerville Old Face", 15));
+        msgText.setText(msg);
+        msgText.setWrappingWidth(100);
+        GridPane.setConstraints(msgText, 1, i);
+        GridPane.setHalignment(msgText, HPos.LEFT);
+
+        i++;
+        chatDisplay.getChildren().addAll(playerText, msgText);
     }
 }

@@ -2,10 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
@@ -37,7 +42,52 @@
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="middleBox" prefHeight="687.0" prefWidth="713.0" />
-                <AnchorPane fx:id="chatBox" opacity="0.8" prefHeight="687.0" prefWidth="220.0" style="-fx-background-color: #d1c4a1;" />
+                <AnchorPane fx:id="chatBox" prefHeight="687.0" prefWidth="220.0" style="-fx-background-color: #d1c4a1;">
+               <children>
+                  <VBox prefHeight="686.4" prefWidth="204.0">
+                     <children>
+                        <AnchorPane prefHeight="651.0" prefWidth="211.0">
+                           <children>
+                              <GridPane fx:id="chatDisplay" layoutX="1.0" layoutY="12.0" prefHeight="626.0" prefWidth="214.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.199951171875" minWidth="10.0" prefWidth="65.99998779296875" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.2" minWidth="10.0" prefWidth="148.40001220703124" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="38.599996948242186" minHeight="10.0" prefHeight="25.599996948242186" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="65.8000005722046" minHeight="10.0" prefHeight="36.59999389648437" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="81.60001220703124" minHeight="10.0" prefHeight="34.20000610351563" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="99.20000305175782" minHeight="10.0" prefHeight="41.600012207031256" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="119.80000915527344" minHeight="10.0" prefHeight="43.999975585937506" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="136.39999999999998" minHeight="10.0" prefHeight="41.60002441406252" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="153.19998779296873" minHeight="10.0" prefHeight="39.20000610351562" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="162.5999816894531" minHeight="10.0" prefHeight="37.600006103515625" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="170.5999816894531" minHeight="10.0" prefHeight="31.799981689453148" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="188.19998779296873" minHeight="10.0" prefHeight="38.400006103515636" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="204.0000061035156" minHeight="10.0" prefHeight="36.00001220703126" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="211.79996337890623" minHeight="10.0" prefHeight="34.20001220703125" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="220.60001220703128" minHeight="10.0" prefHeight="39.20001220703125" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="227.80002441406248" minHeight="10.0" prefHeight="36.79997558593749" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="232.39999999999998" minHeight="10.0" prefHeight="39.80000000000001" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="232.39999999999998" minHeight="8.800000000000011" prefHeight="40.79996337890623" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="247.5999816894531" minHeight="10.0" prefHeight="36.800036621093795" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="28.0" prefWidth="204.0">
+                           <children>
+                              <TextField fx:id="content" layoutY="8.0" prefHeight="28.0" prefWidth="132.0" />
+                              <Button fx:id="sendBtn" layoutX="132.0" layoutY="8.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="56.0" text="Send">
+                                 <font>
+                                    <Font name="Baskerville Old Face" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
             </children>
         </HBox>
     </children>

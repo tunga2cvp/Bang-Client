@@ -79,7 +79,29 @@ public class Listener {
                     }
                 });
                 break;
-
+            case "chatnotify":
+                String chatContent = JsonHandler.getStringAttribute(message, "content");
+                String sender = JsonHandler.getStringAttribute(message, "username");
+                String scope = JsonHandler.getStringAttribute(message, "scope");
+                if ("lobby".equals(scope)){
+                    Platform.runLater(()-> {
+                        try {
+                            HomeScreenHandler.getHomescreenHandler().addChat(sender, chatContent);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                else if ("room".equals(scope)) {
+                    Platform.runLater(()-> {
+                        try {
+                            LobbyScreenHandler.getLobbyScreenHandler().addChat(sender, chatContent);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                break;
             case "lobbynotify":
                 LobbyNotifyReceive lobbyNotifyReceive = gson.fromJson(message, LobbyNotifyReceive.class);
                 Set<String> lobbyset = lobbyNotifyReceive.getLobby().keySet();

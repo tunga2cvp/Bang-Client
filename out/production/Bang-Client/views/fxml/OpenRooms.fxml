@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="roomBox" prefHeight="687.0" prefWidth="713.0" style="-fx-background-color: #c2a68a;" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="roomBox" prefHeight="687.0" prefWidth="647.0" style="-fx-background-color: #c2a68a;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="143.0" layoutY="14.0" text="Open Rooms List">
          <font>
             <Font name="Baskerville Old Face" size="61.0" />
          </font>
       </Label>
-      <VBox fx:id="roomList" layoutY="96.0" prefHeight="525.0" prefWidth="713.0">
+      <VBox fx:id="roomList" layoutY="96.0" prefHeight="525.0" prefWidth="647.0">
          <children>
             <AnchorPane prefHeight="63.0" prefWidth="561.0">
                <children>
