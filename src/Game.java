@@ -59,8 +59,10 @@ public class Game extends Application {
             fadeOut.setOnFinished((e) -> {
                 //change to home screen
                 try {
-                    LoginScreenHandler loginScreenHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
-                    loginScreenHandler.show();
+//                    LoginScreenHandler loginScreenHandler = new LoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
+//                    loginScreenHandler.show();
+                    LoginScreenHandler.setLoginScreenHandler(Configs.LOGIN_SCREEN_PATH,primaryStage);
+                    LoginScreenHandler.getLoginScreenHandler().show();
 //                    BoardScreenHandler.setBoardScreenHandler(Configs.BOARD_SCREEN_PATH, primaryStage);
 //                    BoardScreenHandler.getBoardScreenHandler().show();
 //                    LobbyScreenHandler.setLobbyScreenHandler(Configs.LOBBY_SCREEN_PATH, primaryStage);

@@ -23,15 +23,31 @@ public class Listener {
         String command = JsonHandler.getStringAttribute(message, "command");
         switch (command){
             case "signup":
-                SignUpController signUpController = new SignUpController();
-                signUpController.setResult(JsonHandler.getStringAttribute(message, "result"));
-                System.out.println("result = " + JsonHandler.getStringAttribute(message, "result"));
+                String signupResult = JsonHandler.getStringAttribute(message, "result");
+                // make the corresponding actions
+                if ("true".equals(signupResult)){
+                    Platform.runLater(()-> {
+                        try {
+                            SignUpScreenHandler.getSignUpScreenHandler().showSuccessPopUp();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                else {
+                    Platform.runLater(()-> {
+                        try {
+                            SignUpScreenHandler.getSignUpScreenHandler().showFailedPopUp();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
                 break;
             case "login":
                 // get the login result
-                LoginController loginController = new LoginController();
-                loginController.setResult(JsonHandler.getStringAttribute(message, "result"));
-                System.out.println("login result = " + JsonHandler.getStringAttribute(message, "result"));
+                String loginResult = JsonHandler.getStringAttribute(message, "result");
+//                System.out.println("login result = " + JsonHandler.getStringAttribute(message, "result"));
 
                 // get the open rooms
                 LoginReceive loginReceive = gson.fromJson(message, LoginReceive.class);
@@ -44,6 +60,24 @@ public class Listener {
                         OpenRoomsController.roomList.add(room);
                     }
                 }
+
+                // show corresponding actions
+                if ("true".equals(loginResult)){
+                    Platform.runLater(()-> {
+                        try {
+                            LoginScreenHandler.getLoginScreenHandler().showHomeScreen();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                else Platform.runLater(()-> {
+                    try {
+                        LoginScreenHandler.getLoginScreenHandler().showError();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
                 break;
 
             case "lobbynotify":

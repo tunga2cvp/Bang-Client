@@ -21,6 +21,14 @@ public class SignUpScreenHandler extends FXMLScreenHandler{
     @FXML
     Button signupBtn;
     SignUpController signUpController;
+    private static SignUpScreenHandler signupscreenhandler;
+
+    public static void setSignupScreenHandler(String screenPath, Stage stage) throws IOException {
+        signupscreenhandler = new SignUpScreenHandler(screenPath, stage);
+    }
+    public static SignUpScreenHandler getSignUpScreenHandler() throws IOException {
+        return signupscreenhandler;
+    }
     public SignUpScreenHandler(String screenPath, Stage stage) throws IOException {
         super(screenPath, stage);
         signUpController = new SignUpController();
@@ -32,34 +40,23 @@ public class SignUpScreenHandler extends FXMLScreenHandler{
             } catch (IOException | InterruptedException ioException) {
                 ioException.printStackTrace();
             }
-
-            // manage UI
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException interruptedException) {
-                interruptedException.printStackTrace();
-            }
-            System.out.println("result is " + signUpController.getResult());
-            if (signUpController.getResult().equals("pending")){
-
-            }
-            else if ( signUpController.getResult().equals("true")) {
-                try {
-                    PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
-                    popUpHandler.SignUp(true, this.stage);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-            }
-            else {
-                try {
-                    PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
-                    popUpHandler.SignUp(false, this.stage);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-
-            }
         });
+    }
+    public void showSuccessPopUp(){
+        // manage UI
+            try {
+                PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
+                popUpHandler.SignUp(true, this.stage);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+    }
+    public void showFailedPopUp(){
+            try {
+                PopUpHandler popUpHandler = new PopUpHandler(Configs.POPUP_PATH, new Stage());
+                popUpHandler.SignUp(false, this.stage);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
     }
 }
