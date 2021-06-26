@@ -14,7 +14,7 @@ public class LogoutController {
 
         // Serialization
         String json = gson.toJson(logoutSend);
-        System.out.println(json);
+//        System.out.println(json);
 
         // send to server
         Client.sendMessage(json);

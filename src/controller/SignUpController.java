@@ -20,7 +20,7 @@ public class SignUpController {
         Gson gson = new Gson();
         // Serialization
         String json = gson.toJson(signUpSend);
-        System.out.println(json);
+//        System.out.println(json);
         // send to server
         Client.sendMessage(json);
     }

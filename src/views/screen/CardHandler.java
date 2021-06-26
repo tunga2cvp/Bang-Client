@@ -30,7 +30,7 @@ public class CardHandler extends FXMLScreenHandler{
 
         selectBtn.setOnAction(e-> {
             BoardController.playingCard = card;
-            System.out.println(BoardController.playingCard.getName());
+            //System.out.println(BoardController.playingCard.getName());
         });
     }
     public Card getCard() {

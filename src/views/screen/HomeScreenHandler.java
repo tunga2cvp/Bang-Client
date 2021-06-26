@@ -69,7 +69,7 @@ public class HomeScreenHandler extends FXMLScreenHandler implements Initializabl
             Gson gson = new Gson();
             // Serialization
             String json = gson.toJson(createRoomSend);
-            System.out.println(json);
+//            System.out.println(json);
             // send to server
             try {
                 Client.sendMessage(json);

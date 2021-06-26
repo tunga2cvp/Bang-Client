@@ -57,7 +57,7 @@ public class OpponentHandler extends FXMLScreenHandler{
             File rolefile = new File(player.getRoleImageURL());
             Image roleimage = new Image(rolefile.toURI().toString());
             role.setImage(roleimage);
-            System.out.println(player.getRoleImageURL());
+            //System.out.println(player.getRoleImageURL());
         }
     }
 }

@@ -21,8 +21,8 @@ public class JSONListener {
             // read token and type
             String token = (String) jsonObject.get("token");
             String jsontype = (String) jsonObject.get("jsontype");
-            System.out.println("token: " + token);
-            System.out.println("jsontype: " + jsontype);
+            //System.out.println("token: " + token);
+            //System.out.println("jsontype: " + jsontype);
 
 
 //            // đọc address
@@ -36,12 +36,12 @@ public class JSONListener {
 
             // read player list
             JSONArray playerList = (JSONArray) jsonObject.get("players");
-            System.out.println("");
-            System.out.println("Player details: ");
+//            System.out.println("");
+//            System.out.println("Player details: ");
             //Iterating the contents of the array
             Iterator player = playerList.iterator();
             while(player.hasNext()) {
-                System.out.println(player.next());
+                //System.out.println(player.next());
             }
 
 

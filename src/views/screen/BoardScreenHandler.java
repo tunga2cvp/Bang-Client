@@ -238,7 +238,7 @@ public class BoardScreenHandler extends FXMLScreenHandler implements Initializab
                     BoardController.playingCard = null; // reset after play a card
                     break;
                 default:
-                    System.out.println(BoardController.playingCard.getName());
+                    //System.out.println(BoardController.playingCard.getName());
             }
         });
 

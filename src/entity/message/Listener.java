@@ -55,7 +55,7 @@ public class Listener {
                     Set<String> set = loginReceive.getLobby().keySet();
                     OpenRoomsController.roomList = new ArrayList<Room>();
                     for (String key : set) {
-                        System.out.println(key + " " + loginReceive.getLobby().get(key));
+//                        System.out.println(key + " " + loginReceive.getLobby().get(key));
                         Room room = new Room(key, loginReceive.getLobby().get(key).getMemberNum(), loginReceive.getLobby().get(key).isPlaying());
                         OpenRoomsController.roomList.add(room);
                     }
@@ -85,7 +85,7 @@ public class Listener {
                 Set<String> lobbyset = lobbyNotifyReceive.getLobby().keySet();
                 OpenRoomsController.roomList = new ArrayList<Room>();
                 for (String key : lobbyset) {
-                    System.out.println(key + " " + lobbyNotifyReceive.getLobby().get(key));
+                    // System.out.println(key + " " + lobbyNotifyReceive.getLobby().get(key));
                     Room room = new Room(key, lobbyNotifyReceive.getLobby().get(key).getMemberNum(), lobbyNotifyReceive.getLobby().get(key).isPlaying());
                     OpenRoomsController.roomList.add(room);
                 }
@@ -93,7 +93,7 @@ public class Listener {
                 break;
 
             case "logout":
-                System.out.println("logout result = " + JsonHandler.getStringAttribute(message, "msg"));
+                // System.out.println("logout result = " + JsonHandler.getStringAttribute(message, "msg"));
                 break;
 
             case "createroom":
@@ -147,6 +147,8 @@ public class Listener {
                         popUpHandler.JoinRoomFailed();
                     });
                 }
+                break;
+            case "leaveroom":
                 break;
             case "roomnotify":
                 RoomNotifyReceive roomNotifyReceive = gson.fromJson(message, RoomNotifyReceive.class);

@@ -19,6 +19,8 @@ public class Client
 
     public static void sendMessage(String message) throws IOException {
         dos.writeUTF(message);
+        System.out.println("----------------------------Sent----------------------------------");
+        System.out.println(message);
     }
 
     public static void activate() throws UnknownHostException, IOException
@@ -45,6 +47,7 @@ public class Client
                         // read the message sent to this client
                         String msg = dis.readUTF();
                         if (msg != null && !("".equals(msg)) && !("Your json command: ".equals(msg))) {
+                            System.out.println("----------------------------Receive----------------------------------");
                             System.out.println(msg);
                             Listener.readReceiveMessage(msg);
                         };

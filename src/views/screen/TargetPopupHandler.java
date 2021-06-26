@@ -24,7 +24,7 @@ public class TargetPopupHandler extends FXMLScreenHandler{
         super(screenPath, stage);
         shootBtn.setOnAction(e->{
             // send the move
-            System.out.println("Target is " + target.getText());
+            //System.out.println("Target is " + target.getText());
             Gson gson = new Gson();
             PlayTurnSend playTurnSend = new PlayTurnSend(BoardController.playingCard.getName(), "SELECT_TARGET", target.getText(), BoardController.playerNum);
             String json = gson.toJson(playTurnSend);
